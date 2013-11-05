@@ -401,6 +401,9 @@
    <!-- Statusbar -->
     <string name="battery_options_title">Battery options</string>
     <string name="battery_options_summary">Customize how battery is displayed</string>
+    <string name="clock_options_title">Clock &amp; date</string>
+    <string name="clock_options_summary">Set view options of time &amp; date in statusbar</string>
+
     <!-- Battery Styles -->
     <string name="battery_percent_title">Statusbar battery indicator</string>
     <string name="battery_percent_summary">Configure icon and text styles for the statusbar battery indicator</string>
@@ -417,6 +420,54 @@
     <string name="status_bar_battery_percentage_text_next">Next to the icon</string>
     <string name="qs_battery_percentage_title">QS battery percentage</string>
     <string name="qs_battery_percentage_summary">Show battery percentage in the QS header instead of battery estimate</string>
+
+    <!-- Statusbar Clock -->
+    <string name="status_bar_clock_pos_title">Position</string>
+    <string name="status_bar_clock_pos_right">Right</string>
+    <string name="status_bar_clock_pos_center">Center</string>
+    <string name="status_bar_clock_pos_left">Left</string>
+
+    <string name="status_bar_am_pm_title">AM/PM style</string>
+    <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Small</string>
+    <string name="status_bar_am_pm_hidden">Hidden (default)</string>
+
+    <string name="status_bar_clock_title">Clock &amp; date</string>
+    <string name="status_bar_clock_summary">Customize clock &amp; date</string>
+    <string name="status_bar_clock_seconds_title">Clock seconds</string>
+    <string name="status_bar_clock_seconds_summary">Display seconds next to clock in status bar</string>
+
+    <string name="status_bar_clock_position_title">Clock style</string>
+    <string name="status_bar_clock_position_right">Right</string>
+    <string name="status_bar_clock_position_left">Left</string>
+    <string name="status_bar_clock_position_center">Center</string>
+    <string name="status_bar_clock_position_hidden">Hidden</string>
+
+    <string name="status_bar_clock_auto_hide_title">Auto-hide</string>
+    <string name="status_bar_clock_auto_hide_summary">Hide and display clock for regular interval to save statusbar space</string>
+    <string name="status_bar_clock_auto_hide_hdur_title">Hide duration</string>
+    <string name="status_bar_clock_auto_hide_hdur_summary">Number of seconds to hide clock</string>
+    <string name="status_bar_clock_auto_hide_sdur_title">Show duration</string>
+    <string name="status_bar_clock_auto_hide_sdur_summary">Number of seconds to wait before hiding clock</string>
+
+    <!--Status bar date -->
+    <string name="status_bar_date_title">Date</string>
+    <string name="status_bar_date_none">Hidden (default)</string>
+    <string name="status_bar_date_small">Small</string>
+    <string name="status_bar_date_normal">Normal</string>
+    <string name="status_bar_date_format_title">Date format</string>
+    <string name="status_bar_date_style">Date style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Lowercase</string>
+    <string name="status_bar_date_style_uppercase">Uppercase</string>
+    <string name="status_bar_date_format_custom">Custom java format</string>
+    <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Enter string</string>
+
+    <string name="clock_date_position">Date position</string>
+    <string name="clock_date_right">Right of time</string>
+    <string name="clock_date_left">Left of time</string>
 
     <!-- Display cutout options -->
     <string name="cutout_main">Display Cutout</string>

@@ -34,6 +34,13 @@
         android:summary="@string/battery_options_summary" />
 
     <Preference
+        android:key="clock_options_category"
+        android:fragment="com.cafex.settings.fragments.ClockOptions"
+        android:icon="@drawable/ic_statusbar_clock"
+        android:title="@string/clock_options_title"
+        android:summary="@string/clock_options_summary" />
+        
+    <Preference
         android:fragment="com.cafex.settings.fragments.QSPanelSettings"
         android:icon="@drawable/ic_notification"
         android:key="notification"
