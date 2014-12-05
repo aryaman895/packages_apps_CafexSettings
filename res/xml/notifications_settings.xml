@@ -20,7 +20,7 @@
     android:title="@string/notifications_title">
 
     <!-- Horizon notifications light -->
-    <com.cafex.settings.preferences.SystemSettingMasterSwitchPreference
+    <com.cafex.settings.preference.SystemSettingMasterSwitchPreference
         android:key="pulse_ambient_light"
         android:title="@string/horizon_light_title"
         android:summary="@string/horizon_light_summary"
@@ -36,6 +36,13 @@
             android:title="@string/notification_sound_vib_screen_on_title"
             android:summary="@string/notification_sound_vib_screen_on_summary"
             android:defaultValue="true" />
+
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/status_bar_notif_count_title"
+        android:summary="@string/status_bar_notif_count_summary"
+        android:defaultValue="false" />
+            
             
     </PreferenceCategory>
  
