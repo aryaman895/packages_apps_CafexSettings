@@ -26,6 +26,12 @@
         android:summary="@string/statusbar_category_summary"
         android:title="@string/statusbar_category_title" />
 
+    <Preference
+        android:fragment="com.cafex.settings.fragments.BatteryOptions"
+        android:key="statusbar_category"
+        android:icon="@drawable/ic_battery_settings"
+        android:title="@string/battery_options_title"
+        android:summary="@string/battery_options_summary" />
 
     <Preference
         android:fragment="com.cafex.settings.fragments.QSPanelSettings"
