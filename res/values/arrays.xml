@@ -2,7 +2,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-
     <!-- Volume step options. -->
     <string-array name="volume_steps_entries" translatable="false">
         <item>60</item>
@@ -247,4 +246,16 @@
         <item>3</item>
     </string-array>
 
+    <!--- Volume key cursor control -->
+    <string-array name="volume_key_cursor_control_entries">
+        <item>@string/volume_key_cursor_control_off</item>
+        <item>@string/volume_key_cursor_control_on</item>
+        <item>@string/volume_key_cursor_control_on_reverse</item>
+    </string-array>
+
+    <string-array name="volume_key_cursor_control_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

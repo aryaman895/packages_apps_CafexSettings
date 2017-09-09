@@ -26,11 +26,20 @@
             android:key="hardware_keys"
             android:title="@string/hardware_keys_category" >
 
-     <com.syberia.cafex.preference.SystemSettingSwitchPreference
+     <com.cafex.settings.preference.SystemSettingSwitchPreference
             android:key="volume_button_music_control"
             android:summary="@string/volume_rocker_music_controls_summary"
             android:title="@string/volume_rocker_music_controls_title"
             android:defaultValue="false" />
+
+    <com.cafex.settings.preference.SystemSettingListPreference
+            android:key="volume_key_cursor_control"
+            android:summary="%s"
+            android:title="@string/volume_key_cursor_control_title"
+            android:dialogTitle="@string/volume_key_cursor_control_title"
+            android:entries="@array/volume_key_cursor_control_entries"
+            android:entryValues="@array/volume_key_cursor_control_values"
+            android:defaultValue="0" />
 
     </PreferenceCategory>
 
