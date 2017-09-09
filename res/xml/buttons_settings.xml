@@ -40,6 +40,12 @@
             android:entries="@array/volume_key_cursor_control_entries"
             android:entryValues="@array/volume_key_cursor_control_values"
             android:defaultValue="0" />
+            
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
+            android:key="volume_rocker_wake"
+            android:summary="@string/volume_rocker_wake_summary"
+            android:title="@string/volume_rocker_wake_title"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
