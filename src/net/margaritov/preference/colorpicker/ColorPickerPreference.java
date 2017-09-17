@@ -53,6 +53,7 @@ public class ColorPickerPreference extends Preference implements
     private int mValue = Color.BLACK;
     private float mDensity = 0;
     private boolean mAlphaSliderEnabled = false;
+    private boolean mEnabled = true;
 
     // if we return -6, button is not enabled
     static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
