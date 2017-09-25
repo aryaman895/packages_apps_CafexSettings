@@ -81,6 +81,11 @@
            android:summary="@string/center_notification_headers_summary"
            
     </PreferenceCategory>
+
+    <!-- Heads up -->
+    <Preference
+        android:key="heads_up_notifications"
+        android:title="@string/heads_up_notifications"
+        android:fragment="com.cafex.settings.fragments.HeadsUpSettings" />    
            
 </PreferenceScreen>
-
