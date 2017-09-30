@@ -68,6 +68,9 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         mMax = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
         mMin = attrs.getAttributeIntValue(SETTINGS_NS, "min", 0);
         mDefaultValue = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", -1);
+        if (mDefaultValue > mMax) {
+            mDefaultValue = mMax;
+        }
         mUnits = getAttributeStringValue(attrs, SETTINGS_NS, "units", "");
         mDefaultText = getAttributeStringValue(attrs, SETTINGS_NS, "defaultText", "Def");
 
