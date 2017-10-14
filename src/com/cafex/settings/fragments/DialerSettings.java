@@ -46,13 +46,18 @@ import java.util.List;
 @SearchIndexable
 public class DialerSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
+    
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         addPreferencesFromResource(R.xml.dialer_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!Utils.isVoiceCapable(getActivity())) {
+                prefSet.removePreference(incallVibCategory);
+        }                
     }
 
     @Override
