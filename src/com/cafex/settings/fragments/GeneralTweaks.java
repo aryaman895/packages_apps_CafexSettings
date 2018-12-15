@@ -40,7 +40,8 @@ import com.android.settings.R;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
+import com.cafex.settings.preference.CustomSeekBarPreference;
+import com.cafex.settings.preference.SecureSettingSwitchPreference;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.logging.nano.MetricsProto;
@@ -59,6 +60,14 @@ public class GeneralTweaks extends SettingsPreferenceFragment implements
 
     private ListPreference mHeadsetRingtoneFocus;
 
+    private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
+    private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
+    private static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
+
+    private CustomSeekBarPreference mCornerRadius;
+    private CustomSeekBarPreference mContentPadding;
+    private SecureSettingSwitchPreference mRoundedFwvals;
+    
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -71,6 +80,38 @@ public class GeneralTweaks extends SettingsPreferenceFragment implements
         mHeadsetRingtoneFocus.setValue(Integer.toString(mHeadsetRingtoneFocusValue));
         mHeadsetRingtoneFocus.setSummary(mHeadsetRingtoneFocus.getEntry());
         mHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);       
+        Resources res = null;
+        Context ctx = getContext();
+        float density = Resources.getSystem().getDisplayMetrics().density;
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // Rounded Corner Radius
+        mCornerRadius = (CustomSeekBarPreference) findPreference(SYSUI_ROUNDED_SIZE);
+        int resourceIdRadius = (int) ctx.getResources().getDimension(com.android.internal.R.dimen.rounded_corner_radius);
+        int cornerRadius = Settings.Secure.getIntForUser(ctx.getContentResolver(), Settings.Secure.SYSUI_ROUNDED_SIZE,
+                ((int) (resourceIdRadius / density)), UserHandle.USER_CURRENT);
+        mCornerRadius.setValue(cornerRadius);
+        mCornerRadius.setOnPreferenceChangeListener(this);
+
+        // Rounded Content Padding
+        //mContentPadding = (CustomSeekBarPreference) findPreference(SYSUI_ROUNDED_CONTENT_PADDING);
+        //int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null,
+        //        null);
+        //int contentPadding = Settings.Secure.getIntForUser(ctx.getContentResolver(),
+        //        Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING,
+        //        (int) (res.getDimension(resourceIdPadding) / density), UserHandle.USER_CURRENT);
+        //mContentPadding.setValue(contentPadding);
+        //mContentPadding.setOnPreferenceChangeListener(this);
+
+        // Rounded use Framework Values
+        mRoundedFwvals = (SecureSettingSwitchPreference) findPreference(SYSUI_ROUNDED_FWVALS);
+        mRoundedFwvals.setOnPreferenceChangeListener(this);       
+        
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -82,10 +123,37 @@ public class GeneralTweaks extends SettingsPreferenceFragment implements
             Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
                     mHeadsetRingtoneFocusValue);
             return true;
+        } else if (preference == mCornerRadius) {
+            Settings.Secure.putIntForUser(getContext().getContentResolver(), Settings.Secure.SYSUI_ROUNDED_SIZE,
+                    (int) objValue, UserHandle.USER_CURRENT);
+            return true;
+        //} else if (preference == mContentPadding) {
+        //    Settings.Secure.putIntForUser(getContext().getContentResolver(), Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING,
+        //            (int) objValue, UserHandle.USER_CURRENT);
+        //    return true;
+        } else if (preference == mRoundedFwvals) {
+            restoreCorners();
+            return true;            
         }
         return false;
     }
 
+    private void restoreCorners() {
+        Resources res = null;
+        float density = Resources.getSystem().getDisplayMetrics().density;
+        Context ctx = getContext();
+
+        try {
+            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        int resourceIdRadius = (int) ctx.getResources().getDimension(com.android.internal.R.dimen.rounded_corner_radius);
+        //int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
+        mCornerRadius.setValue((int) (resourceIdRadius / density));
+        //mContentPadding.setValue((int) (res.getDimension(resourceIdPadding) / density));
+    }
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.CAFEX;
