@@ -439,5 +439,6 @@
 
     <string name="edit_hint">Value</string>
     <string name="seek_value_edit_label">Set value</string>
+    <string name="default_text">Def</string>
             
 </resources>
