@@ -436,5 +436,8 @@
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>     
     <string name="volume_panel_miui_val" translatable="false">co.potatoproject.plugin.volume.miui</string>          
+
+    <string name="edit_hint">Value</string>
+    <string name="seek_value_edit_label">Set value</string>
             
 </resources>
