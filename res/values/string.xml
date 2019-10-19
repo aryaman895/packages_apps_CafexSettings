@@ -113,5 +113,10 @@
     <string name="ringtone_focus_mode_title">When headset connected, incoming call plays on</string>
     <string name="ringtone_focus_mode_dynamic">Headset only if music is active</string>
     <string name="ringtone_focus_mode_stock">Both speaker and headset</string>
-    
+
+    <!-- Lock screen cover art -->
+    <string name="lockscreen_media_category">Music</string>
+    <string name="media_art_title">Media artwork</string>
+    <string name="media_art_summary">Show media cover art as the lockscreen background</string>
+
 </resources>
