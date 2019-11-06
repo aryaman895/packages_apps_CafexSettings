@@ -71,5 +71,11 @@
          android:fragment="com.cafex.settings.fragments.CornerFragment"
          android:summary="@string/corner_summary"         
          android:title="@string/corner_main" />         
-            
+
+    <Preference
+          android:key="animations"
+          android:fragment="com.cafex.settings.fragments.Animations"
+          android:icon="@drawable/ic_animations"
+          android:title="@string/animations_title" />            
+          
 </PreferenceScreen>
