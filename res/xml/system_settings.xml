@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright © 2018-2019 Syberia Project
+    Copyright © 2018-2019 cafex Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -39,5 +39,13 @@
         android:summary="@string/dialer_summary"
         android:title="@string/dialer_title"
         android:fragment="com.cafex.settings.fragments.DialerSettings" />
+
+    <com.cafex.settings.preference.SystemSettingMasterSwitchPreference
+        android:key="gaming_mode_enabled"
+        android:icon="@drawable/ic_gaming"
+        android:fragment="com.cafex.settings.fragments.GamingMode"
+        android:title="@string/gaming_mode_title"
+        android:summary="@string/gaming_mode_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
