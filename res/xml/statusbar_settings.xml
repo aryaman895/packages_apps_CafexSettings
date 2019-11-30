@@ -26,4 +26,10 @@
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
     </Preference>
 
+    <com.cafex.settings.preference.SecureSettingSwitchPreference
+            android:key="use_old_mobiletype"
+            android:title="@string/use_old_mobiletype_title"
+            android:summary="@string/use_old_mobiletype_summary"
+            android:defaultValue="false" />
+            
 </PreferenceScreen>
