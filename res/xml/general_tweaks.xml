@@ -73,4 +73,11 @@
             android:dependency="sysui_rounded_fwvals" /-->
     </PreferenceCategory>        
                 
+        <com.cafex.settings.preference.SystemSettingListPreference
+        android:key="systemui_plugin_volume"
+        android:title="@string/volume_panel"
+        android:entries="@array/volume_panel_entries"
+        android:entryValues="@array/volume_panel_values"
+        android:defaultValue="@string/volume_panel_aosp_val" />
+                        
 </PreferenceScreen>
