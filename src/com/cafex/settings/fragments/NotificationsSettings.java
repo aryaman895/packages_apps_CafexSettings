@@ -18,11 +18,16 @@ package com.cafex.settings.fragments;
 
 import android.os.Bundle;
 import android.content.Context;
+import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.SwitchPreference;
+import android.text.TextUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -34,19 +39,50 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import com.cafex.settings.preferences.CustomSeekBarPreference;
+import com.cafex.settings.preferences.SystemSettingListPreference;
+import com.cafex.settings.preferences.SystemSettingMasterSwitchPreference;
+import com.cafex.settings.preferences.SystemSettingSwitchPreference;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SearchIndexable
-public class NotificationsSettings extends SettingsPreferenceFragment {
+public class NotificationsSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String KEY_EDGE_LIGHTNING = "pulse_ambient_light";
+
+    private SystemSettingMasterSwitchPreference mEdgeLightning;
+    
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         addPreferencesFromResource(R.xml.notifications_settings);
+        PreferenceScreen prefScreen = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
+
+        mEdgeLightning = (SystemSettingMasterSwitchPreference)
+                findPreference(KEY_EDGE_LIGHTNING);
+        boolean enabled = Settings.System.getIntForUser(resolver,
+                KEY_EDGE_LIGHTNING, 0, UserHandle.USER_CURRENT) == 1;
+        mEdgeLightning.setChecked(enabled);
+        mEdgeLightning.setOnPreferenceChangeListener(this);        
     }
 
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mEdgeLightning) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver, KEY_EDGE_LIGHTNING,
+                    value ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        }
+        return false;
+    }
+    
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.CAFEX;
