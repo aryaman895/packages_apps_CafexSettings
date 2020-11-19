@@ -398,7 +398,10 @@
     <string name="global_actions_max_columns_summary">Set how many actions to show before buttons move to overflow menu</string>
     <string name="global_actions_onthego_title">On-The-Go</string>
 
-
+    <!-- Quicksettings -->
+    <string name="qs_tiles_title">Quicksettings tiles</string>
+    <string name="qs_tile_title_visibility_title">Show tiles title</string>
+    <string name="qs_tile_title_visibility_summary">Show a label under each quicksettings title</string>
 
     <!-- QS rows and columns -->
     <string name="qs_columns_rows_category_title">QS columns and rows</string>
