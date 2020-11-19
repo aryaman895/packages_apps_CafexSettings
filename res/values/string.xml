@@ -398,7 +398,17 @@
     <string name="global_actions_max_columns_summary">Set how many actions to show before buttons move to overflow menu</string>
     <string name="global_actions_onthego_title">On-The-Go</string>
 
-   <!-- Statusbar -->
+
+
+    <!-- QS rows and columns -->
+    <string name="qs_columns_rows_category_title">QS columns and rows</string>
+    <string name="qs_rows_columns_title">QS rows and columns</string>
+    <string name="qs_rows_portrait_title">Tiles rows on portrait</string>
+    <string name="qs_rows_landscape_title">Tiles rows on landscape</string>
+    <string name="qs_columns_portrait_title">Tiles columns on portrait</string>
+    <string name="qs_columns_landscape_title">Tiles columns on landscape</string> 
+
+    <!-- Statusbar -->
     <string name="battery_options_title">Battery options</string>
     <string name="battery_options_summary">Customize how battery is displayed</string>
     <string name="clock_options_title">Clock &amp; date</string>
