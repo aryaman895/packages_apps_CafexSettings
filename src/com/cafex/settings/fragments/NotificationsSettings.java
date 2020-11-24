@@ -17,6 +17,7 @@
 package com.cafex.settings.fragments;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
@@ -56,6 +57,14 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
     private static final String KEY_EDGE_LIGHTNING = "pulse_ambient_light";
 
     private SystemSettingMasterSwitchPreference mEdgeLightning;
+
+    private static final String PREF_FLASH_ON_CALL = "flashlight_on_call";
+    private static final String PREF_FLASH_ON_CALL_DND = "flashlight_on_call_ignore_dnd";
+    private static final String PREF_FLASH_ON_CALL_RATE = "flashlight_on_call_rate";
+
+    private SystemSettingListPreference mFlashOnCall;
+    private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
+    private CustomSeekBarPreference mFlashOnCallRate;    
     
     @Override
     public void onCreate(Bundle bundle) {
@@ -69,7 +78,25 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
         boolean enabled = Settings.System.getIntForUser(resolver,
                 KEY_EDGE_LIGHTNING, 0, UserHandle.USER_CURRENT) == 1;
         mEdgeLightning.setChecked(enabled);
-        mEdgeLightning.setOnPreferenceChangeListener(this);        
+        mEdgeLightning.setOnPreferenceChangeListener(this);
+ 
+        mFlashOnCallRate = (CustomSeekBarPreference)
+                findPreference(PREF_FLASH_ON_CALL_RATE);
+        int value = Settings.System.getInt(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL_RATE, 1);
+        mFlashOnCallRate.setValue(value);
+        mFlashOnCallRate.setOnPreferenceChangeListener(this);
+
+        mFlashOnCallIgnoreDND = (SystemSettingSwitchPreference)
+                findPreference(PREF_FLASH_ON_CALL_DND);
+        value = Settings.System.getInt(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL, 0);
+        mFlashOnCallIgnoreDND.setVisible(value > 1);
+        mFlashOnCallRate.setVisible(value != 0);
+
+        mFlashOnCall = (SystemSettingListPreference)
+                findPreference(PREF_FLASH_ON_CALL);
+        mFlashOnCall.setOnPreferenceChangeListener(this);           
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -79,7 +106,12 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver, KEY_EDGE_LIGHTNING,
                     value ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
-        }
+         } else if (preference == mFlashOnCallRate) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL_RATE, value);
+            return true;
+        }  
         return false;
     }
     
