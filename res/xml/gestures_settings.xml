@@ -18,7 +18,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/gestures_category_title">
 
-
  <PreferenceCategory
         android:title="@string/doubletap_gestures_title"
         android:key="doubleap_gestures" >
@@ -34,6 +33,13 @@
          android:key="double_tap_sleep_gesture"
          android:title="@string/double_tap_sleep_gesture_title"
          android:summary="@string/double_tap_sleep_gesture_summary"
+         android:icon="@drawable/ic_zzz"
+         android:defaultValue="false" />
+
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
+         android:key="doze_trigger_doubletap"
+         android:title="@string/doze_double_tap_title"
+         android:summary="@string/doze_double_tap_summary"
          android:icon="@drawable/ic_zzz"
          android:defaultValue="false" />
 
