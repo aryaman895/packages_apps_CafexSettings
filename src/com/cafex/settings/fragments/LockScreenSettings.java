@@ -17,30 +17,62 @@
 package com.cafex.settings.fragments;
 
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.provider.SearchIndexableResource;
-
+import android.provider.Settings;
 import com.android.settings.R;
-
+import androidx.preference.*;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
+import com.android.settingslib.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.settings.fuelgauge.PowerUsageSummary;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@SearchIndexable
-public class LockScreenSettings extends SettingsPreferenceFragment {
+import com.cafex.settings.preference.SystemSettingListPreference;
 
+@SearchIndexable
+public class LockScreenSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
+
+    private SystemSettingListPreference mBatteryTempUnit;
+    
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         addPreferencesFromResource(R.xml.lockscreen_settings);
 
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        int unitMode = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_BATTERY_INFO_TEMP_UNIT, 0, UserHandle.USER_CURRENT);
+        mBatteryTempUnit = (SystemSettingListPreference) findPreference(
+                "lockscreen_charge_temp_unit");
+        mBatteryTempUnit.setValue(String.valueOf(unitMode));
+        mBatteryTempUnit.setSummary(mBatteryTempUnit.getEntry());
+        mBatteryTempUnit.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mBatteryTempUnit) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.LOCKSCREEN_BATTERY_INFO_TEMP_UNIT, value,
+                    UserHandle.USER_CURRENT);
+            int index = mBatteryTempUnit.findIndexOfValue((String) newValue);
+            mBatteryTempUnit.setSummary(
+            mBatteryTempUnit.getEntries()[index]);
+            return true;
+        }
+        return false;
     }
 
     @Override
