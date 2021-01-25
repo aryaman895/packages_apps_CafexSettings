@@ -53,4 +53,17 @@
             android:persistent="false" />            
     </PreferenceCategory>
     
+    <PreferenceCategory
+        android:title="@string/qs_media">
+
+    <!-- QS media player -->
+    <com.cafex.settings.preferences.SystemSettingSwitchPreference
+        android:key="qs_media_player"
+        android:title="@string/qs_media_player_title"
+        android:summaryOn="@string/qs_media_player_summary_on"
+        android:summaryOff="@string/qs_media_player_summary_off"
+        android:defaultValue="true" />
+
+    </PreferenceCategory>
+        
 </PreferenceScreen>
