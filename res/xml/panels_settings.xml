@@ -47,6 +47,12 @@
         android:summary="@string/notifications_category_summary"
         android:title="@string/panel_notifications_title" />
 
+       <com.cafex.settings.preference.SystemSettingSwitchPreference
+        android:key="qs_show_battery_estimate"
+        android:title="@string/qs_show_battery_estimate_title"
+        android:summary="@string/qs_show_battery_estimate_summary"
+        android:defaultValue="true"/>
+        
         <com.cafex.settings.preference.SystemSettingSwitchPreference
          android:key="qs_tile_title_visibility"
          android:title="@string/qs_tile_title_visibility_title"
