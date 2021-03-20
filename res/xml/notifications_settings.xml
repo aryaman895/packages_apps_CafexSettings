@@ -26,5 +26,18 @@
         android:summary="@string/horizon_light_summary"
         android:fragment="com.cafex.settings.fragments.HorizonLightSettings"
         android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="notification_misc"
+        android:title="@string/notification_misc">
+
+        <com.cafex.settings.preference.SystemSettingSwitchPreference
+            android:key="notification_sound_vib_screen_on"
+            android:title="@string/notification_sound_vib_screen_on_title"
+            android:summary="@string/notification_sound_vib_screen_on_summary"
+            android:defaultValue="true" />
+            
+    </PreferenceCategory>                    
         
 </PreferenceScreen>
+

@@ -168,4 +168,9 @@
     <string name="horizon_color_mode_custom">@string/horizon_light_color_title</string>
     <string name="horizon_light_color_title">Custom color</string>
     
+    <!-- Notification sound -->
+    <string name="notification_misc">Misc</string>    
+    <string name="notification_sound_vib_screen_on_title">Notification sound if active</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
 </resources>
