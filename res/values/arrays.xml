@@ -257,8 +257,8 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
-    </string-array>
-
+    </string-array> 
+      
     <string-array name="display_cutout_style_entries" translatable="false">
         <item>@string/display_cutout_style_normal</item>
         <item>@string/display_cutout_style_immerse</item>
@@ -269,14 +269,15 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
-    </string-array>
-    
+    </string-array>        
+
     <!--  Volume Panel  -->
     <string-array name="volume_panel_entries">
         <item>@string/volume_panel_aosp</item>
         <item>@string/volume_panel_compact</item>
         <item>@string/volume_panel_oreo</item>
         <item>@string/volume_panel_tiled</item>
+        <item>@string/volume_panel_miui</item>
     </string-array>
 
     <string-array name="volume_panel_values" translatable="false">
@@ -284,6 +285,8 @@
         <item>@string/volume_panel_compact_val</item>
         <item>@string/volume_panel_oreo_val</item>
         <item>@string/volume_panel_tiled_val</item>
+        <item>@string/volume_panel_miui_val</item>
     </string-array>
+
 
 </resources>
