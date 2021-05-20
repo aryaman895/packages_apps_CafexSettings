@@ -16,8 +16,8 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="syberia_settings_title">Syberia Settings</string>
-    <string name="syberia_dashboard_summary">Most extra features added into Syberia Project</string>
+    <string name="cafex_settings_title">Syberia Settings</string>
+    <string name="cafex_dashboard_summary">Most extra features added into Syberia Project</string>
 
     <string name="gestures_category_title">Gestures</string>
     <string name="gestures_category_summary">Various gestures settings</string>
@@ -42,7 +42,7 @@
     <!-- About team -->
     <string name="about_team_title">About Syberia team</string>
     <string name="about_team_summary">Information about the team and maintainers</string>
-    <string name="syberia_team_title">Syberia Team</string>
+    <string name="cafex_team_title">Syberia Team</string>
 
     <string name="panel_notifications_title">Notifications</string>
     <string name="notifications_category_summary">Customize various features for notification panel</string>

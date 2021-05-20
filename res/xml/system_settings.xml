@@ -19,7 +19,7 @@
     android:title="@string/system_category_title">
 
     <Preference
-        android:fragment="com.syberia.settings.fragments.GeneralTweaks"
+        android:fragment="com.cafex.settings.fragments.GeneralTweaks"
         android:icon="@drawable/ic_general_tweaks"
         android:key="general_tweaks"
         android:summary="@string/general_tweaks_summary"
@@ -31,6 +31,6 @@
         android:key="dialer"
         android:summary="@string/dialer_summary"
         android:title="@string/dialer_title"
-        android:fragment="com.syberia.settings.fragments.DialerSettings" />
+        android:fragment="com.cafex.settings.fragments.DialerSettings" />
 
 </PreferenceScreen>
