@@ -28,9 +28,10 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
-
+import com.cafex.settings.preference.SystemSettingSeekBarPreference;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.fuelgauge.PowerUsageSummary;
+import com.cafex.settings.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +43,10 @@ import com.cafex.settings.preference.SystemSettingListPreference;
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_blur";
+    
     private SystemSettingListPreference mBatteryTempUnit;
+    private SystemSettingSeekBarPreference mLockscreenBlur;    
     
     @Override
     public void onCreate(Bundle bundle) {
@@ -58,6 +62,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mBatteryTempUnit.setValue(String.valueOf(unitMode));
         mBatteryTempUnit.setSummary(mBatteryTempUnit.getEntry());
         mBatteryTempUnit.setOnPreferenceChangeListener(this);
+
+        mLockscreenBlur = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
+        if (!Utils.isBlurSupported()) {
+            mLockscreenBlur.setVisible(false);
+        }        
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

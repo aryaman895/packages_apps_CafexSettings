@@ -159,6 +159,7 @@ public class DialerSettings extends SettingsPreferenceFragment implements
             mVibrator = null;
         }        
         addPreferencesFromResource(R.xml.dialer_settings);
+        final ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefScreen = getPreferenceScreen();
 
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
