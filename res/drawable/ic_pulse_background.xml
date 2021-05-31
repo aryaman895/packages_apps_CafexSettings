@@ -23,7 +23,7 @@
     <item
         android:width="@dimen/dashboard_tile_foreground_image_size"
         android:height="@dimen/dashboard_tile_foreground_image_size"
-        android:start="@dimen/shapeshifter_cat_icon_image_inset"
+        android:start="@dimen/cafex_cat_icon_image_inset"
         android:top="@dimen/dashboard_tile_foreground_image_inset"
         android:drawable="@drawable/ic_pulse_image" />
 </layer-list>
