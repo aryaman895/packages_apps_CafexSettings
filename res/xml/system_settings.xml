@@ -41,6 +41,7 @@
 
     <Preference
         android:fragment="com.cafex.settings.fragments.HorizonLightSettings"
+        android:icon="@drawable/ic_horizon_light"		
         android:key="notifications"
         android:summary="@string/horizon_light_summary"
         android:title="@string/horizon_light_title" />
