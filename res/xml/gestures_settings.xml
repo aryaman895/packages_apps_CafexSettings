@@ -17,6 +17,12 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/gestures_category_title">
+ 
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
+        android:key="three_finger_gesture"
+        android:title="@string/three_finger_gesture"
+        android:summary="@string/three_finger_gesture_summary"
+        android:defaultValue="false" />    
 
  <PreferenceCategory
         android:title="@string/doubletap_gestures_title"

@@ -526,6 +526,14 @@
     <string name="seek_value_edit_label">Set value</string>
     <string name="default_text">Def</string>
 
+    <!-- Reusable strings -->
+    <string name="simple_category">SIMPLE</string>
+    <string name="advanced_category">ADVANCED</string>
+
+    <!--3-Finger screenshot-->
+    <string name="three_finger_gesture">Three finger gesture</string>
+    <string name="three_finger_gesture_summary">Swipe three finger to screenshot</string>
+
     <!-- Incall vibrate options -->
     <string name="incall_vibration_category">In-call vibration options</string>
     <string name="incall_vibrate_connect_title">Vibrate on connect</string>
