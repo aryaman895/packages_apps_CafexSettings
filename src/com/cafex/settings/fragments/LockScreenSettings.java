@@ -19,8 +19,10 @@ package com.cafex.settings.fragments;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.content.Context;
+import android.app.WallpaperManager;
 import android.content.ContentResolver;
 import android.provider.SearchIndexableResource;
+import android.os.ParcelFileDescriptor;
 import android.provider.Settings;
 import com.android.settings.R;
 import androidx.preference.*;
@@ -52,7 +54,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         addPreferencesFromResource(R.xml.lockscreen_settings);
-
+        Context mContext = getContext();
+        WallpaperManager manager = WallpaperManager.getInstance(mContext);
         ContentResolver resolver = getActivity().getContentResolver();
 
         int unitMode = Settings.System.getIntForUser(resolver,
@@ -62,9 +65,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         mBatteryTempUnit.setValue(String.valueOf(unitMode));
         mBatteryTempUnit.setSummary(mBatteryTempUnit.getEntry());
         mBatteryTempUnit.setOnPreferenceChangeListener(this);
-
+        
+       ParcelFileDescriptor pfd = manager.getWallpaperFile(WallpaperManager.FLAG_LOCK);
         mLockscreenBlur = (SystemSettingSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR);
-        if (!Utils.isBlurSupported()) {
+        if (!Utils.isBlurSupported() || pfd != null) {
             mLockscreenBlur.setVisible(false);
         }        
     }
