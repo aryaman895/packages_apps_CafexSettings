@@ -56,7 +56,7 @@ public class DialerSettings extends SettingsPreferenceFragment implements OnPref
 
         PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
         if (!Utils.isVoiceCapable(getActivity())) {
-                prefSet.removePreference(incallVibCategory);
+                prefScreen.removePreference(incallVibCategory);
         }                
     }
 

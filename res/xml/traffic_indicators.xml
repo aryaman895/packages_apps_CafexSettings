@@ -19,7 +19,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.cafex.settings.preferences.SecureSettingListPreference
+    <com.cafex.settings.preference.SecureSettingListPreference
         android:key="network_traffic_location"
         android:title="@string/network_traffic_location_title"
         android:entries="@array/network_traffic_location_entries"
@@ -27,7 +27,7 @@
         android:summary="%s"
         android:defaultValue="0" />
 
-    <com.cafex.settings.preferences.SecureSettingListPreference
+    <com.cafex.settings.preference.SecureSettingListPreference
         android:key="network_traffic_mode"
         android:title="@string/network_traffic_mode_title"
         android:entries="@array/network_traffic_mode_entries"
@@ -35,13 +35,13 @@
         android:summary="%s"
         android:defaultValue="0" />
 
-    <com.cafex.settings.preferences.SecureSettingSwitchPreference
+    <com.cafex.settings.preference.SecureSettingSwitchPreference
         android:key="network_traffic_autohide"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
         android:defaultValue="true" />
 
-    <com.cafex.settings.preferences.CustomSeekBarPreference
+    <com.cafex.settings.preference.CustomSeekBarPreference
         android:key="network_traffic_autohide_threshold"
         android:title="@string/network_traffic_autohide_threshold"
         android:defaultValue="0"
@@ -51,7 +51,7 @@
         settings:interval="10"
         android:dependency="network_traffic_autohide" />
 
-    <com.cafex.settings.preferences.CustomSeekBarPreference
+    <com.cafex.settings.preference.CustomSeekBarPreference
         android:key="network_traffic_refresh_interval"
         android:title="@string/network_traffic_refresh_interval_title"
         android:summary="@string/network_traffic_refresh_interval_summary"
@@ -60,7 +60,7 @@
         settings:min="1"
         settings:units="@string/unit_seconds" />
 
-    <com.cafex.settings.preferences.SecureSettingListPreference
+    <com.cafex.settings.preference.SecureSettingListPreference
         android:key="network_traffic_units"
         android:title="@string/network_traffic_units_title"
         android:entries="@array/network_traffic_units_entries"
@@ -68,7 +68,7 @@
         android:summary="%s"
         android:defaultValue="1" />
 
-    <com.cafex.settings.preferences.SecureSettingSwitchPreference
+    <com.cafex.settings.preference.SecureSettingSwitchPreference
         android:key="network_traffic_hidearrow"
         android:title="@string/network_traffic_hidearrow"
         android:summary="@string/network_traffic_hidearrow_summary"

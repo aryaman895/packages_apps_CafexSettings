@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-ppackage com.cafex.settings.fragments;
+package com.cafex.settings.fragments;
 
 import android.app.ActivityManager;
 import android.annotation.Nullable;

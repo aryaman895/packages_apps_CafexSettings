@@ -19,6 +19,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/panel_notifications_title">
 
+    <!-- Heads up -->
+    <Preference
+        android:key="heads_up_notifications"
+        android:title="@string/heads_up_notifications"
+        android:fragment="com.cafex.settings.fragments.HeadsUpSettings" />  
+        
     <com.cafex.settings.preference.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
@@ -51,18 +57,8 @@
             android:entryValues="@array/qs_tile_animation_interpolator_values"
             android:defaultValue="0"
             android:persistent="false" />            
-    </PreferenceCategory>
-    
-    <PreferenceCategory
-        android:title="@string/qs_media">
 
-    <!-- QS media player -->
-    <com.cafex.settings.preferences.SystemSettingSwitchPreference
-        android:key="qs_media_player"
-        android:title="@string/qs_media_player_title"
-        android:summaryOn="@string/qs_media_player_summary_on"
-        android:summaryOff="@string/qs_media_player_summary_off"
-        android:defaultValue="true" />
+
 
     </PreferenceCategory>
         

@@ -19,14 +19,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/statusbar_category_title">
 
-     <Preference
+    <PreferenceScreen
             android:key="status_bar_icons"
             android:title="@string/statusbar_items_title"
-            android:icon="@drawable/ic_systemui_tuner_statusbaritems" >
+            android:summary="@string/statusbar_items_title">
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
-    </Preference>
+    </PreferenceScreen>
 
-    <com.cafex.settings.preference.SecureSettingSwitchPreference
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
             android:key="use_old_mobiletype"
             android:title="@string/use_old_mobiletype_title"
             android:summary="@string/use_old_mobiletype_summary"

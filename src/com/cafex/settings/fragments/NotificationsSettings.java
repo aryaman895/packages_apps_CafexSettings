@@ -29,24 +29,24 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 import android.text.TextUtils;
-
+import android.content.res.Resources;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-
+import android.provider.Settings;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
+import com.android.settingslib.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.cafex.settings.preferences.CustomSeekBarPreference;
-import com.cafex.settings.preferences.SystemSettingListPreference;
-import com.cafex.settings.preferences.SystemSettingMasterSwitchPreference;
-import com.cafex.settings.preferences.SystemSettingSwitchPreference;
+import com.cafex.settings.preference.CustomSeekBarPreference;
+import com.cafex.settings.preference.SystemSettingListPreference;
+import com.cafex.settings.preference.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -54,9 +54,6 @@ import java.util.Map;
 public class NotificationsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String KEY_EDGE_LIGHTNING = "pulse_ambient_light";
-
-    private SystemSettingMasterSwitchPreference mEdgeLightning;
 
     private static final String PREF_FLASH_ON_CALL = "flashlight_on_call";
     private static final String PREF_FLASH_ON_CALL_DND = "flashlight_on_call_ignore_dnd";
@@ -64,22 +61,14 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
 
     private SystemSettingListPreference mFlashOnCall;
     private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
-    private CustomSeekBarPreference mFlashOnCallRate;    
-    
+    private CustomSeekBarPreference mFlashOnCallRate; 
+
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         addPreferencesFromResource(R.xml.notifications_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
-
-        mEdgeLightning = (SystemSettingMasterSwitchPreference)
-                findPreference(KEY_EDGE_LIGHTNING);
-        boolean enabled = Settings.System.getIntForUser(resolver,
-                KEY_EDGE_LIGHTNING, 0, UserHandle.USER_CURRENT) == 1;
-        mEdgeLightning.setChecked(enabled);
-        mEdgeLightning.setOnPreferenceChangeListener(this);
- 
         mFlashOnCallRate = (CustomSeekBarPreference)
                 findPreference(PREF_FLASH_ON_CALL_RATE);
         int value = Settings.System.getInt(resolver,
@@ -101,12 +90,7 @@ public class NotificationsSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mEdgeLightning) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putIntForUser(resolver, KEY_EDGE_LIGHTNING,
-                    value ? 1 : 0, UserHandle.USER_CURRENT);
-            return true;
-         } else if (preference == mFlashOnCallRate) {
+        if (preference == mFlashOnCallRate) {
             int value = (Integer) newValue;
             Settings.System.putInt(resolver,
                     Settings.System.FLASHLIGHT_ON_CALL_RATE, value);

@@ -36,9 +36,9 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.cafex.settings.preferences.CustomSeekBarPreference;
-import com.cafex.settings.preferences.SecureSettingListPreference;
-import com.cafex.settings.preferences.SecureSettingSwitchPreference;
+import com.cafex.settings.preference.CustomSeekBarPreference;
+import com.cafex.settings.preference.SecureSettingListPreference;
+import com.cafex.settings.preference.SecureSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.List;

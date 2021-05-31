@@ -31,9 +31,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.cafex.settings.preferences.CustomSeekBarPreference;
-import com.cafex.settings.preferences.SystemSettingListPreference;
-import com.cafex.settings.preferences.SystemSettingSwitchPreference;
+import com.cafex.settings.preference.CustomSeekBarPreference;
+import com.cafex.settings.preference.SystemSettingListPreference;
+import com.cafex.settings.preference.SystemSettingSwitchPreference;
 
 public class HorizonLightSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {

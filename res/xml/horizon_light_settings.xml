@@ -15,20 +15,29 @@
     android:title="@string/horizon_light_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <com.cafex.settings.preferences.SystemSettingSwitchPreference
+
+    <!-- Horizon notifications light -->
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
+        android:key="pulse_ambient_light"
+        android:title="@string/horizon_light_title"
+        android:summary="@string/horizon_light_summary"
+        android:defaultValue="false" />
+
+
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
         android:key="ambient_notification_light_enabled"
         android:title="@string/horizon_light_enabled_title"
         android:summary="@string/horizon_light_enabled_summary"
         android:defaultValue="false" />
 
-    <com.cafex.settings.preferences.SystemSettingSwitchPreference
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
         android:key="ambient_notification_light_hide_aod"
         android:title="@string/horizon_light_hide_aod_title"
         android:summary="@string/horizon_light_hide_aod_summary"
         android:defaultValue="false"
         android:dependency="ambient_notification_light_enabled" />
 
-    <com.cafex.settings.preferences.CustomSeekBarPreference
+    <com.cafex.settings.preference.CustomSeekBarPreference
         android:key="ambient_notification_light_duration"
         android:title="@string/horizon_light_duration_title"
         android:summary="@string/horizon_light_duration_summary"
@@ -37,13 +46,13 @@
         settings:defaultValue="2"
         settings:units="@string/unit_seconds" />
 
-    <com.cafex.settings.preferences.SystemSettingSwitchPreference
+    <com.cafex.settings.preference.SystemSettingSwitchPreference
         android:key="ambient_light_pulse_for_all"
         android:title="@string/horizon_light_show_always_title"
         android:summary="@string/horizon_light_show_always_summary"
         android:defaultValue="false" />
         
-    <com.cafex.settings.preferences.CustomSeekBarPreference
+    <com.cafex.settings.preference.CustomSeekBarPreference
         android:key="ambient_notification_light_repeats"
         android:title="@string/horizon_light_repeats_title"
         android:summary="@string/horizon_light_repeats_summary"
@@ -51,28 +60,28 @@
         settings:min="0"
         settings:defaultValue="0" />
 
-    <com.cafex.settings.preferences.SystemSettingListPreference
+    <com.cafex.settings.preference.SystemSettingListPreference
         android:key="ambient_notification_light_timeout"
         android:title="@string/horizon_light_timeout_title"
         android:entries="@array/horizon_light_timeout_entries"
         android:entryValues="@array/horizon_light_timeout_values"
         android:defaultValue="0" />
 
-    <com.cafex.settings.preferences.SystemSettingListPreference
+    <com.cafex.settings.preference.SystemSettingListPreference
         android:key="ambient_light_layout"
         android:title="@string/horizon_light_layout_title"
         android:entries="@array/horizon_light_layout_entries"
         android:entryValues="@array/horizon_light_layout_values"
         android:defaultValue="0" />
 
-    <com.cafex.settings.preferences.SystemSettingListPreference
+    <com.cafex.settings.preference.SystemSettingListPreference
         android:key="ambient_light_repeat_direction"
         android:title="@string/horizon_light_repeat_direction_title"
         android:entries="@array/horizon_light_repeat_direction_entries"
         android:entryValues="@array/horizon_light_repeat_direction_values"
         android:defaultValue="0" />
                 
-    <com.cafex.settings.preferences.SystemSettingListPreference
+    <com.cafex.settings.preference.SystemSettingListPreference
         android:key="ambient_notification_color_mode"
         android:title="@string/horizon_color_mode_title"
         android:entries="@array/horizon_color_mode_entries"

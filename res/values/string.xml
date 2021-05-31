@@ -17,7 +17,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="cafex_settings_title">CAFEX Extras</string>
-    <string name="cafex_dashboard_summary">Most extra features added into CAFEX Project</string>
+    <string name="cafex_dashboard_summary">Some Extras for CAFEX</string>
 
     <string name="gestures_category_title">Gestures</string>
     <string name="gestures_category_summary">Various gestures settings</string>
@@ -400,7 +400,7 @@
 
     <!-- Display cutout options -->
     <string name="cutout_main">Display Cutout</string>
-    <string name="cutout_main_summary">They really cut corners with this one</string>
+    <string name="cutout_summary">Enable Disable or Hide notch from here</string>
     <string name="display_cutout_style_title">Cutout style</string>
     <string name="display_cutout_style_normal">Normal</string>
     <string name="display_cutout_style_immerse">Immerse</string>
@@ -409,7 +409,8 @@
     <string name="stock_statusbar_in_hide_summary">Use default statusbar height in Hide</string>    
 
     <!-- Rounded corners -->
-    <string name="corners_category">Corners</string>
+    <string name="corner_main">Corners</string>
+    <string name="corner_summary">They really cut corners with this one</string>    
     <string name="corner_radius">Rounded corner radius</string>
     <string name="content_padding">Corner content padding</string>
     <string name="corner_fwvals">Use framework values</string>
