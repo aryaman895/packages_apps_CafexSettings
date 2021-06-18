@@ -501,6 +501,7 @@
     
     <!--  Volume Panel Plugin   -->
     <string name="volume_panel">Volume Panel Style</string>
+    <string name="volume_panel_aospa">AOSPA</string>    
     <string name="volume_panel_aosp">AOSP</string>
     <string name="volume_panel_compact">Compact</string>
     <string name="volume_panel_oreo">Oreo</string>
@@ -508,6 +509,7 @@
     <string name="volume_panel_miui">MIUI Compact</string>    
 
     <!--  Volume Panel Plugin Values   -->
+    <string name="volume_panel_aospa_val">co.potatoproject.plugin.volume.default</string>    
     <string name="volume_panel_aosp_val">co.potatoproject.plugin.volume.aosp</string>
     <string name="volume_panel_compact_val">co.potatoproject.plugin.volume.compact</string>
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
