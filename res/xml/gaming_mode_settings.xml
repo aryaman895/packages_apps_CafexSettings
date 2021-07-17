@@ -64,13 +64,6 @@
         android:dependency="gaming_mode_enabled"
         android:summary="%s" />
 
-    <com.cafex.settings.preference.SystemSettingSwitchPreference
-        android:key="gaming_mode_fps_toggle"
-        android:title="@string/gaming_mode_fps_title"
-        android:summary="@string/gaming_mode_fps_summary"
-        android:defaultValue="false" />
-
-
 <!--        <com.cafex.settings.preference.SystemSettingSwitchPreference
         android:key="gaming_mode_dynamic_state"
         android:title="@string/gaming_mode_dynamic_title"
